@@ -167,75 +167,139 @@ function mostrarResultados(resultados) {
 
     container.innerHTML = "";
 
-    resultados.map(resultado => {
-
-        const botoes = document.querySelectorAll(".btn-candidatura");
-
-        botoes.forEach(botao => {
-
-            botao.addEventListener("click", () => {
-
-                const mensagem = botao.nextElementSibling;
-
-                mensagem.textContent = "Candidatura enviada com sucesso!";
-                mensagem.style.color = "green";
-                mensagem.style.fontWeight = "bold";
-
-                botao.disabled = true;
-                botao.textContent = "Enviado";
-
-            });
-
-        });
+    resultados.forEach(resultado => {
 
         const classe = criarClasseCompatibilidade(resultado.classificacao);
 
-        container.innerHTML += `
-    <div class="vaga-card">
+        const card = document.createElement("div");
 
-        <h3>${resultado.empresa}</h3>
+        card.classList.add("vaga-card");
 
-        <p><strong>Cargo:</strong> ${resultado.cargo}</p>
+        card.innerHTML = `
+            <h3>${resultado.empresa}</h3>
 
-        <p><strong>Salário:</strong> ${resultado.salario}</p>
+            <p><strong>Cargo:</strong> ${resultado.cargo}</p>
 
-        <p><strong>Modalidade:</strong> ${resultado.modalidade}</p>
+            <p><strong>Salário:</strong> ${resultado.salario}</p>
 
-        <p>
-            <strong>Compatibilidade:</strong>
-            ${resultado.percentual}%
-        </p>
+            <p><strong>Modalidade:</strong> ${resultado.modalidade}</p>
 
-        <p class="${classe}">
-            ${resultado.classificacao}
-        </p>
+            <p>
+                <strong>Compatibilidade:</strong>
+                ${resultado.percentual}%
+            </p>
 
-        <p>
-            <strong>Habilidades encontradas:</strong>
-            ${resultado.habilidadesEncontradas.join(", ")}
-        </p>
+            <p class="${classe}">
+                ${resultado.classificacao}
+            </p>
 
-        <p>
-            <strong>Habilidades faltantes:</strong>
-            ${resultado.habilidadesFaltantes.length > 0
+            <p>
+                <strong>Habilidades encontradas:</strong>
+                ${resultado.habilidadesEncontradas.join(", ")}
+            </p>
+
+            <p>
+                <strong>Habilidades faltantes:</strong>
+                ${resultado.habilidadesFaltantes.length > 0
                 ? resultado.habilidadesFaltantes.join(", ")
                 : "Nenhuma"
             }
-        </p>
+            </p>
 
-        <p>
-            <strong>Recomendação:</strong>
-            ${recomendarEstudos(resultado.habilidadesFaltantes)}
-        </p>
+            <p>
+                <strong>Recomendação:</strong>
+                ${recomendarEstudos(resultado.habilidadesFaltantes)}
+            </p>
 
-        <button class="btn-candidatura">
-            Candidatar-se
-        </button>
+            <button class="btn-candidatura">
+                Candidatar-se
+            </button>
 
-        <p class="mensagem"></p>
+            <p class="mensagem"></p>
+        `;
 
-    </div>`;
+        const botao = card.querySelector(".btn-candidatura");
+
+        const mensagem = card.querySelector(".mensagem");
+
+        botao.addEventListener("click", () => {
+
+            mensagem.textContent = "Candidatura enviada com sucesso!";
+            mensagem.style.color = "green";
+            mensagem.style.fontWeight = "bold";
+
+            botao.disabled = true;
+            botao.textContent = "Enviado";
+
+        });
+
+        container.appendChild(card);
+
     });
 
 }
 
+function mostrarMelhorVaga(resultados) {
+
+    const melhor = resultados.reduce((anterior, atual) => {
+
+        return atual.percentual > anterior.percentual
+            ? atual
+            : anterior;
+
+    });
+
+    const container = document.getElementById("melhor-vaga");
+
+    container.innerHTML = `
+        <div class="card">
+
+            <h3>${melhor.empresa}</h3>
+
+            <p><strong>Cargo:</strong> ${melhor.cargo}</p>
+
+            <p>
+                <strong>Compatibilidade:</strong>
+                ${melhor.percentual}%
+            </p>
+
+        </div>
+    `;
+}
+
+async function iniciarSistema() {
+
+    const container = document.getElementById("vagas-container");
+
+    container.innerHTML = `
+        <p class="loading">
+            Carregando vagas...
+        </p>
+    `;
+
+    const vagasCarregadas = await carregarVagas();
+
+    const resultados = vagasCarregadas.map(vaga =>
+        analisarCompatibilidade(candidato, vaga)
+    );
+
+    mostrarResultados(resultados);
+
+    mostrarMelhorVaga(resultados);
+
+    const total = contadorAnalises();
+
+    console.log(`Total de análises realizadas: ${total}`);
+}
+
+document
+    .getElementById("btnCarregar")
+    .addEventListener("click", () => {
+
+        executarAnalise(() => {
+            iniciarSistema();
+        });
+
+    });
+
+mostrarCandidato();
