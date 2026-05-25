@@ -133,3 +133,109 @@ function carregarVagas() {
 
 }
 
+function mostrarCandidato() {
+
+    const container = document.getElementById("dados-candidato");
+
+    container.innerHTML = `
+        <p><strong>Nome:</strong> ${candidato.nome}</p>
+        <p><strong>Área:</strong> ${candidato.area}</p>
+        <p><strong>Experiência:</strong> ${candidato.experienciaMeses} meses</p>
+        <p><strong>Habilidades:</strong> ${candidato.listarHabilidades()}</p>
+    `;
+}
+
+function criarClasseCompatibilidade(classificacao) {
+
+    switch (classificacao) {
+
+        case "Alta compatibilidade":
+            return "alta";
+
+        case "Média compatibilidade":
+            return "media";
+
+        default:
+            return "baixa";
+    }
+
+}
+
+function mostrarResultados(resultados) {
+
+    const container = document.getElementById("vagas-container");
+
+    container.innerHTML = "";
+
+    resultados.map(resultado => {
+
+        const botoes = document.querySelectorAll(".btn-candidatura");
+
+        botoes.forEach(botao => {
+
+            botao.addEventListener("click", () => {
+
+                const mensagem = botao.nextElementSibling;
+
+                mensagem.textContent = "Candidatura enviada com sucesso!";
+                mensagem.style.color = "green";
+                mensagem.style.fontWeight = "bold";
+
+                botao.disabled = true;
+                botao.textContent = "Enviado";
+
+            });
+
+        });
+
+        const classe = criarClasseCompatibilidade(resultado.classificacao);
+
+        container.innerHTML += `
+    <div class="vaga-card">
+
+        <h3>${resultado.empresa}</h3>
+
+        <p><strong>Cargo:</strong> ${resultado.cargo}</p>
+
+        <p><strong>Salário:</strong> ${resultado.salario}</p>
+
+        <p><strong>Modalidade:</strong> ${resultado.modalidade}</p>
+
+        <p>
+            <strong>Compatibilidade:</strong>
+            ${resultado.percentual}%
+        </p>
+
+        <p class="${classe}">
+            ${resultado.classificacao}
+        </p>
+
+        <p>
+            <strong>Habilidades encontradas:</strong>
+            ${resultado.habilidadesEncontradas.join(", ")}
+        </p>
+
+        <p>
+            <strong>Habilidades faltantes:</strong>
+            ${resultado.habilidadesFaltantes.length > 0
+                ? resultado.habilidadesFaltantes.join(", ")
+                : "Nenhuma"
+            }
+        </p>
+
+        <p>
+            <strong>Recomendação:</strong>
+            ${recomendarEstudos(resultado.habilidadesFaltantes)}
+        </p>
+
+        <button class="btn-candidatura">
+            Candidatar-se
+        </button>
+
+        <p class="mensagem"></p>
+
+    </div>`;
+    });
+
+}
+
