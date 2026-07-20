@@ -87,6 +87,25 @@ img/
 
 ---
 
+# 📌 Kanban do Projeto
+
+| 📝 Backlog | 🚧 A Fazer | 🔄 Em Desenvolvimento | ✅ Concluído |
+|------------|------------|-----------------------|--------------|
+| 🟨 Levantar requisitos | 🟨 Criar estrutura de pastas | 🟦 Integração dos módulos | 🟩 Planejamento do projeto |
+| 🟨 Planejar interface | 🟨 Desenvolver motor SkillMatch | 🟦 Testes de compatibilidade | 🟩 HTML semântico |
+| 🟨 Definir regras de negócio | 🟨 Criar classes (Pessoa, Candidato e Vaga) | 🟦 Ajustes de layout | 🟩 CSS responsivo |
+| 🟨 Definir modelo de dados | 🟨 Implementar herança | 🟦 Revisão do código | 🟩 Formulário do candidato |
+| 🟨 Escolher identidade visual | 🟨 Implementar cálculo de compatibilidade | | 🟩 Compatibilidade entre candidato e vagas |
+| | 🟨 Criar vagas.json | | 🟩 Classificação Alta/Média/Baixa |
+| | 🟨 Implementar Fetch API | | 🟩 Melhor vaga automática |
+| | 🟨 Implementar LocalStorage | | 🟩 Recomendação de estudos |
+| | 🟨 Criar renderização dinâmica | | 🟩 Callback e Closure |
+| | 🟨 Implementar validações | | 🟩 Programação Orientada a Objetos |
+| | 🟨 Criar README | | 🟩 Import/Export (ES Modules) |
+| | 🟨 Criar logo | | 🟩 Fetch das vagas |
+| | 🟨 Testes finais | | 🟩 Persistência com LocalStorage |
+| | 🟨 Preparar entrega | | 🟩 Documentação do projeto |
+
 ## Autor
 
 Felipe Vieira Machado
