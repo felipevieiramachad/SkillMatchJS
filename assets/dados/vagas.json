@@ -1,0 +1,55 @@
+[
+    {
+        "id": 1,
+        "empresa": "Tech Solutions",
+        "cargo": "Desenvolvedor Front-end",
+        "requisitos": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Git"
+        ],
+        "salario": "R$ 4.500",
+        "modalidade": "Remoto",
+        "stack": "Front-end"
+    },
+    {
+        "id": 2,
+        "empresa": "CodeLab",
+        "cargo": "Desenvolvedor Back-end",
+        "requisitos": [
+            "Java",
+            "Spring",
+            "MySQL",
+            "Git"
+        ],
+        "salario": "R$ 5.500",
+        "modalidade": "Híbrido"
+    },
+    {
+        "id": 3,
+        "empresa": "WebConnect",
+        "cargo": "Desenvolvedor Full Stack",
+        "requisitos": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Node.js",
+            "MySQL"
+        ],
+        "salario": "R$ 6.500",
+        "modalidade": "Remoto"
+    },
+    {
+        "id": 4,
+        "empresa": "Dev Company",
+        "cargo": "Estágio em Desenvolvimento",
+        "requisitos": [
+            "HTML",
+            "CSS",
+            "Git"
+        ],
+        "salario": "R$ 2.000",
+        "modalidade": "Presencial"
+    }
+]
