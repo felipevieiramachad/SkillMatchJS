@@ -2,46 +2,137 @@
 <html lang="pt-BR">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkillMatch JS</title>
-    <link rel="stylesheet" href="style.css">
+
+    <title>SkillMatch Web - Compatibilidade de Vagas</title>
+
+    <meta name="description" content="Sistema para análise de compatibilidade entre candidatos e vagas de emprego.">
+
+    <link rel="stylesheet" href="./assets/styles/style.css">
+
 </head>
 
 <body>
 
     <header>
-        <h1>SkillMatch JS</h1>
-        <p>Simulador de Compatibilidade</p>
+
+        <div class="logo">
+
+            <img src="./assets/img/logo.svg" alt="Logo SkillMatch">
+
+            <h1>SkillMatch</h1>
+
+        </div>
+
     </header>
 
     <main>
 
-        <section class="card candidato-card">
-            <h2>Candidato</h2>
+        <section class="perfil">
 
-            <div id="dados-candidato"></div>
+            <h2>Perfil do candidato</h2>
 
-            <button id="btnCarregar">
-                Analisar Compatibilidade
-            </button>
+            <form id="formPerfil">
+
+                <div class="campo">
+
+                    <label for="nome">
+
+                        Nome
+
+                    </label>
+
+                    <input type="text" id="nome" required>
+
+                </div>
+
+                <div class="campo">
+
+                    <label for="area">
+
+                        Área
+
+                    </label>
+
+                    <select id="area" required>
+
+                        <option value="">Selecione</option>
+
+                        <option>Front-end</option>
+
+                        <option>Back-end</option>
+
+                        <option>Full Stack</option>
+
+                    </select>
+
+                </div>
+
+                <div class="campo">
+
+                    <label for="habilidades">
+
+                        Habilidades (separadas por vírgula)</label>
+
+                    <input type="text" id="habilidades" required>
+
+                </div>
+
+                <div class="campo">
+
+                    <label for="experiencia">
+
+                        Experiência (meses)
+
+                    </label>
+
+                    <input type="number" id="experiencia" min="0" required>
+
+                </div>
+
+                <button type="submit">
+
+                    Analisar Compatibilidade
+
+                </button>
+
+            </form>
+
+        </section>
+
+        <section class="mensagem">
+
+            <p id="status" aria-live="polite">
+
+            </p>
+
         </section>
 
         <section>
-            <h2>Vagas</h2>
 
-            <div id="vagas-container"></div>
-        </section>
+            <h2>Vagas Encontradas</h2>
 
-        <section class="melhor-vaga">
-            <h2>Melhor Compatibilidade</h2>
+            <div id="resultado"></div>
 
-            <div id="melhor-vaga"></div>
         </section>
 
     </main>
 
-    <script src="main.js"></script>
+    <footer>
+
+        <p>
+
+            SkillMatch © 2026
+
+        </p>
+
+    </footer>
+
+    <script type="module" src="./assets/scripts/main.js">
+
+    </script>
 
 </body>
 

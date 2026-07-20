@@ -1,212 +1,94 @@
-````md id="pmkv5o"
-# SkillMatch JS
+# SkillMatch Web
 
-Simulador de Compatibilidade para vagas Front-end Júnior desenvolvido com HTML, CSS e JavaScript.
+## Sobre o projeto
 
-O projeto compara as habilidades de uma pessoa candidata com os requisitos de vagas fictícias, calculando o percentual de compatibilidade, exibindo habilidades faltantes e sugerindo recomendações de estudo.
+O SkillMatch Web é uma aplicação desenvolvida em HTML, CSS e JavaScript puro que analisa o perfil de um candidato e calcula sua compatibilidade com vagas de emprego utilizando um motor próprio de comparação de habilidades.
 
----
-
-# Objetivo
-
-O objetivo do projeto é simular um sistema simples de análise de compatibilidade entre candidatos e vagas de tecnologia, aproximando o funcionamento de plataformas reais de recrutamento.
+O sistema foi desenvolvido como projeto da disciplina de Desenvolvimento Web (Módulo 01).
 
 ---
 
-# Funcionalidades
+## Problema
 
-- Cadastro de candidato
-- Listagem de vagas fictícias
-- Comparação de habilidades
-- Cálculo de compatibilidade
-- Classificação das vagas
-- Identificação da melhor vaga
-- Recomendação de estudos
-- Sistema de candidatura
-- Simulação de carregamento via Promise
-- Uso de Async/Await
-- Interface responsiva simples
+Empresas recebem muitos currículos e candidatos possuem dificuldade em identificar quais vagas possuem maior compatibilidade com seu perfil.
+
+O SkillMatch busca resolver esse problema realizando uma análise automática das habilidades do candidato.
 
 ---
 
-# Tecnologias Utilizadas
+## Tecnologias utilizadas
 
 - HTML5
 - CSS3
-- JavaScript ES6+
+- JavaScript ES6
+- Flexbox
+- Fetch API
+- LocalStorage
+- JSON
+- Programação Orientada a Objetos
 
 ---
 
-# Conceitos de JavaScript Utilizados
+## Recursos implementados
 
-## Programação Orientada a Objetos
-
-- Classes
-- Herança
-- Uso de this
-
-## Métodos de Array
-
-- map()
-- filter()
-- reduce()
-
-## Programação Assíncrona
-
-- Promise
-- async/await
-
-## Outros Conceitos
-
-- Callback
-- Closure
-- Manipulação de DOM
-- Eventos
-- Estruturas de decisão
-
----
-
-# Estrutura do Projeto
-
-```bash
-skillmatch-js/
-│
-├── index.html
-├── style.css
-└── script.js
-````
-
----
-
-# Funcionalidades do Sistema
-
-## Compatibilidade de Vagas
-
-O sistema compara:
-
-* habilidades do candidato;
-* requisitos da vaga;
-* percentual de aderência.
-
----
-
-## Classificação
-
-As vagas são classificadas em:
-
-* Alta compatibilidade
-* Média compatibilidade
-* Baixa compatibilidade
-
----
-
-## Sistema de Candidatura
-
-Cada vaga possui um botão:
-
-```txt
-Candidatar-se
-```
-
-Ao clicar:
-
-* a candidatura é enviada;
-* o botão é desativado;
-* uma mensagem de sucesso é exibida.
-
----
-
-# Exemplo de Compatibilidade
-
-```txt
-Empresa: WebHub
-Compatibilidade: 75%
-Habilidades faltantes: React
-Recomendação: Estude React
-```
-
----
-
-# Melhorias Futuras
-
-* Integração com banco de dados
-* Login de usuário
-* Cadastro dinâmico de vagas
-* Sistema de autenticação
-* API externa
-* Dashboard administrativo
-
----
-
-# Autor
-
-Felipe Machado
-
-Projeto acadêmico desenvolvido para prática de JavaScript Front-end.
-
-# 📌 Kanban do Projeto
-
-<table>
-<tr>
-<td valign="top" width="25%">
-
-## 🧠 Backlog
-
-- Dark Mode
-- API real de vagas
-- Dashboard
-- Sistema de login
-- Banco de dados
-- Deploy online
-- Histórico de candidaturas
-- Chat com recrutador
-
-</td>
-
-<td valign="top" width="25%">
-
-## 📋 A Fazer
-
-- Melhorar responsividade
-- Barra de progresso
-- Melhorar CSS
-- Adicionar animações
-- Criar versão mobile
-- Melhorar acessibilidade
-- Loading animado
-- Feedback visual
-
-</td>
-
-<td valign="top" width="25%">
-
-## 🚧 Em Desenvolvimento
-
-- Ajustes finais da interface
-- Melhorias de UX
-- Refatoração do JavaScript
-
-</td>
-
-<td valign="top" width="25%">
-
-## ✅ Concluído
-
-- Estrutura HTML
-- Estilização CSS
 - Cadastro do candidato
-- Criação das vagas
-- Compatibilidade
-- Classificação das vagas
-- Recomendação de estudos
-- Sistema de candidatura
-- Promise
-- Async/Await
-- Callback
-- Closure
-- Classes e Herança
-- Manipulação de DOM
+- Compatibilidade entre candidato e vagas
+- Classificação Alta/Média/Baixa
+- Melhor vaga automaticamente
+- Recomendações de estudo
+- Persistência com LocalStorage
+- Carregamento das vagas utilizando Fetch
+- Responsividade Mobile First
+- HTML semântico
+- SEO básico
+- Acessibilidade
 
-</td>
-</tr>
-</table>
+---
+
+## Estrutura
+
+```text
+assets/
+
+styles/
+
+scripts/
+
+dados/
+
+img/
+```
+
+## Como executar
+
+1. Abrir o projeto no VS Code.
+
+2. Instalar a extensão **Live Server**.
+
+3. Clicar com o botão direito em **index.html**.
+
+4. Selecionar **Open with Live Server**.
+
+---
+
+## Melhorias futuras
+
+- Pesquisa por vagas
+
+- Filtros
+
+- Ordenação
+
+- Tema escuro
+
+- Integração com API real
+
+- Login de usuários
+
+---
+
+## Autor
+
+Felipe Vieira Machado
+
+Projeto desenvolvido para fins acadêmicos.
